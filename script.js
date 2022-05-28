@@ -5,7 +5,7 @@ async function getData(url) {
 
 async function getTime() {
     try {
-        const data = await getData('http://worldtimeapi.org/api/timezone/Australia/Melbourne');
+        const data = await getData('https://worldtimeapi.org/api/timezone/Australia/Melbourne');
         let timeDate = new Date(data.datetime);
         return timeDate;
     }
