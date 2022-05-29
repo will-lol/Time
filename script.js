@@ -5,7 +5,7 @@ function calculateTime(delay, date) {
     return date;
 }
 
-function renderTime(date) {
+async function renderTime(date) {
     updateDOM('h', checkTime(date.getHours(), 2));
     updateDOM('m', checkTime(date.getMinutes(), 2));
     updateDOM('s', checkTime(date.getSeconds(), 2));
