@@ -1,3 +1,16 @@
+var timeDelay = [0, 3, 30]; // delay is an array where [0] = difference in hours, [1] is difference in minutes, [2] is difference in seconds
+
+async function loop() {
+    if (motionDecider()) {
+        timeout = 50
+    } else {
+        timeout = 2000
+    }
+    date = new Date();
+    renderTime(calculateTime(timeDelay, date));
+    setTimeout(loop, timeout);
+}
+
 function calculateTime(delay, date) {
     date.setHours(date.getHours() - delay[0]);
     date.setMinutes(date.getMinutes() - delay[1]);
@@ -23,18 +36,6 @@ function checkTime(time, places) {
         time = "0" + time;
     }
     return time;
-}
-
-async function loop() {
-    if (motionDecider()) {
-        timeout = 50
-    } else {
-        timeout = 2000
-    }
-    date = new Date();
-    delay = [0, 3, 30]; // delay is an array where [0] = difference in hours, [1] is difference in minutes, [2] is difference in seconds
-    renderTime(calculateTime(delay, date));
-    setTimeout(loop, timeout);
 }
 
 function motionDecider() {
