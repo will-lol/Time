@@ -6,10 +6,16 @@ function calculateTime(delay, date) {
 }
 
 function renderTime(date) {
-    document.getElementById('h').innerHTML = checkTime(date.getHours(), 2);
-    document.getElementById('m').innerHTML = checkTime(date.getMinutes(), 2);
-    document.getElementById('s').innerHTML = checkTime(date.getSeconds(), 2);
-    document.getElementById('ms').innerHTML = checkTime(date.getMilliseconds(), 3);
+    updateDOM('h', checkTime(date.getHours(), 2));
+    updateDOM('m', checkTime(date.getMinutes(), 2));
+    updateDOM('s', checkTime(date.getSeconds(), 2));
+    updateDOM('ms', checkTime(date.getMilliseconds(), 3));
+}
+
+function updateDOM(id, contents) {
+    if (document.getElementById(id).innerHTML != contents) {
+        document.getElementById(id).innerHTML = contents;
+    }
 }
 
 function checkTime(time, places) {
