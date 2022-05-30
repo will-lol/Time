@@ -1,4 +1,4 @@
-var timeDelay = [0, 3, 30]; // delay is an array where [0] = difference in hours, [1] is difference in minutes, [2] is difference in seconds
+var timeDelay = [0, 1, 11]; // delay is an array where [0] = difference in hours, [1] is difference in minutes, [2] is difference in seconds
 
 async function loop() {
     if (motionDecider()) {
